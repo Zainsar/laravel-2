@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\customcontroller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,21 +14,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 // parameter pass in Route::get("/", function () {
-Route::get('/home/{name?}/{age?}', function ($name = null , $age = null) {
-    return view('welcome')->with(compact('name' , 'age'));
-    // $data = compact('name' , 'age')
-    // print_r($data);
-});
+// Route::get('/home/{name?}/{age?}', function ($name = null , $age = null) {
+//     return view('welcome')->with(compact('name' , 'age'));
+//     // $data = compact('name' , 'age')
+//     // print_r($data);
+// });
 
 // url route DirectoryRoute::get('')
-Route::get('/about', function () {
-    return view('about');
-});
+// Route::get('/about', function () {
+//     return view('about');
+// });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+// Route::get('/contact', function () {
+//     return view('contact');
+// });
 
-Route::get('/logout', function () {
-    return view('logout');
-});
+// Route::get('/logout', function () {
+//     return view('logout');
+// });
+
+Route::get('/home', [customcontroller::class,'index']);
