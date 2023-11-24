@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\customcontroller;
+use App\Http\Controllers\Singleaction;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,4 +34,13 @@ use App\Http\Controllers\customcontroller;
 //     return view('logout');
 // });
 
-Route::get('/home', [customcontroller::class,'index']);
+// Route::get('/index', [customcontroller::class,'index']);
+
+Route::controller(customcontroller::class)->group(function(){
+    Route::get('/index' , 'index')->name('index');
+    Route::get('/about' , 'about')->name('about');
+    // Route::get('/contact' , 'contact')->name('contact');
+});
+
+ 
+Route::get('/contact', Singleaction::class)->name('contact');
